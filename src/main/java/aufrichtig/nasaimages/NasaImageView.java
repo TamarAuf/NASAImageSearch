@@ -10,8 +10,10 @@ import javax.imageio.ImageIO;
 @Singleton
 public class NasaImageView extends JComponent{
     ImageIcon imageIcon;
+    String imageLink;
 
-    public void setNasaImage(String imageLink) throws MalformedURLException {
+    public void setNasaImage(NasaImageFeed.Link link) throws MalformedURLException {
+        imageLink = link.imageLink;
         URL url = new URL(imageLink);
         imageIcon = new ImageIcon(url);
     }

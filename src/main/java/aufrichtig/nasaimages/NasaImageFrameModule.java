@@ -6,7 +6,7 @@ import com.google.inject.Provides;
 public class NasaImageFrameModule extends AbstractModule {
 
         @Provides
-        static NasaImageService providesNeoService() {
+        static NasaImageService providesNasaImageService() {
             return new NasaImageServiceFactory().getInstance();
         }
 

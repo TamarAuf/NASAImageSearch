@@ -5,6 +5,6 @@ import retrofit2.http.*;
 
 public interface NasaImageService {
 
-    @GET("/search?q=apollo%2011&description=moon%20landing&media_type=image")
-    Call<NasaImageFeed> getImage();
+    @GET("/search?&media_type=image")
+    Call<NasaImageFeed> getImage(@Query("q") String textInput);
 }

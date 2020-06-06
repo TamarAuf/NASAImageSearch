@@ -12,7 +12,7 @@ public class ImageSearchFrame extends JFrame {
     private JTextField searchField;
     private JLabel instruct;
     private JButton searchButton;
-
+    String textInput;
 
     public ImageSearchFrame() {
         setSize(400, 300);
@@ -21,13 +21,14 @@ public class ImageSearchFrame extends JFrame {
 
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
-        instruct = new JLabel("These are it");
+        instruct = new JLabel("Search for NASA images by entering keywords");
 
         searchField = new JTextField();
         searchField.setPreferredSize(new Dimension(160, 40));
         searchButton = new JButton("Search");
 
         searchButton.addActionListener(actionEvent -> {
+            textInput = searchField.getText();
             try {
                 Injector injector = Guice.createInjector(new NasaImageFrameModule());
                 NasaImageFrame frame = injector.getInstance(NasaImageFrame.class);

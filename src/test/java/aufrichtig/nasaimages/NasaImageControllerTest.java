@@ -42,16 +42,17 @@ public class NasaImageControllerTest  {
         Call<NasaImageFeed> call = mock(Call.class);
         Response<NasaImageFeed> response = mock(Response.class);
 
-        String imageLink = mock(String.class);
+        NasaImageFeed.Item item = mock(NasaImageFeed.Item.class);
+        NasaImageFeed.Link link = mock(NasaImageFeed.Link.class);
         NasaImageFeed feed = mock(NasaImageFeed.class);
 
-        doReturn(imageLink).when(feed).getFirstImage();
+        doReturn(link).when(feed).getFirstLink();
         doReturn(feed).when(response).body();
 
         // when
         controller.onResponse(call, response);
 
         // then
-        verify(view).setNasaImage(imageLink);
+        verify(view).setNasaImage(link);
     }
 }

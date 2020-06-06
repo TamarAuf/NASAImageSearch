@@ -12,14 +12,13 @@ import java.awt.*;
 public class NasaImageFrame extends JFrame {
 
     @Inject
-    public NasaImageFrame(NasaImageView view, NasaImageController controller) {
+    public NasaImageFrame(NasaImageView view, NasaImageController controller, String textInput) {
         setSize(800, 600);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("NASA Image");
         setLayout(new BorderLayout());
 
         add(view, BorderLayout.CENTER);
-        controller.requestImage();
+        controller.requestImage(textInput);
     }
 
 

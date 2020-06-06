@@ -19,19 +19,17 @@ public class NasaImageController implements Callback<NasaImageFeed>{
         this.view = view;
     }
 
-    public void requestImage() {
-        service.getImage().enqueue(this);
+    public void requestImage(String textInput) {
+        service.getImage(textInput).enqueue(this);
     }
 
     @Override
     public void onResponse(Call<NasaImageFeed> call, Response<NasaImageFeed> response) {
-        Item item = response.body().getFirstImage();
+        NasaImageFeed.Link link = response.body().getFirstLink();
+        NasaImageFeed.Data datum = response.body().getFirstDatum();
 
-        ArrayList<Data> data = item.data;
-        ArrayList<Link> links = item.links;
-        Link link = links.get(0);
         try {
-            view.setNasaImage(link.imageLink);
+            view.setNasaImage(link);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

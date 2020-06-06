@@ -8,25 +8,29 @@ import java.util.*;
 public class NasaImageFeed {
     Collection collection;
 
-    public Item getFirstImage() {
-        return collection.items.get(0);
+    public Data getFirstDatum() {
+        return collection.items.get(0).data.get(0);
     }
-}
- class Collection {
-    ArrayList<Item> items = new ArrayList();
-}
+    public Link getFirstLink() {
+        return collection.items.get(0).links.get(0);
+    }
 
-class Item{
-    ArrayList <Data> data = new ArrayList();
-    ArrayList <Link> links = new ArrayList();
-}
+    class Collection {
+        ArrayList<Item> items = new ArrayList();
+    }
 
-class Data{
-    String title;
-    String description;
-}
+    class Item {
+        ArrayList<Data> data = new ArrayList();
+        ArrayList<Link> links = new ArrayList();
+    }
 
-class Link{
-    @SerializedName("href")
-    String imageLink;
+    class Data {
+        String title;
+        String description;
+    }
+
+    class Link {
+        @SerializedName("href")
+        String imageLink;
+    }
 }

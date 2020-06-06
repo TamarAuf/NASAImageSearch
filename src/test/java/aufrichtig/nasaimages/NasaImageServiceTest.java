@@ -28,22 +28,22 @@ public class NasaImageServiceTest {
         NasaImageFeed feed = response.body();
         assertNotNull(feed);
 
-        Collection collection = feed.collection;
+        NasaImageFeed.Collection collection = feed.collection;
         assertNotNull(collection);
 
-        ArrayList<Item> items = collection.items;
+        ArrayList<NasaImageFeed.Item> items = collection.items;
         assertFalse(items.isEmpty());
 
-        Item item = items.get(0);
+        NasaImageFeed.Item item = items.get(0);
 
-        ArrayList<Data> data = item.data;
+        ArrayList<NasaImageFeed.Data> data = item.data;
         assertFalse(data.isEmpty());
 
-        ArrayList<Link> links = item.links;
+        ArrayList<NasaImageFeed.Link> links = item.links;
         assertFalse(links.isEmpty());
 
-        Data datum = data.get(0);
-        Link link = links.get(0);
+        NasaImageFeed.Data datum = data.get(0);
+        NasaImageFeed.Link link = links.get(0);
 
         assertNotNull(datum.description);
         assertNotNull(datum.title);
