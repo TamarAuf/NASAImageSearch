@@ -44,15 +44,17 @@ public class NasaImageControllerTest  {
 
         NasaImageFeed.Item item = mock(NasaImageFeed.Item.class);
         NasaImageFeed.Link link = mock(NasaImageFeed.Link.class);
+        NasaImageFeed.Data datum = mock(NasaImageFeed.Data.class);
         NasaImageFeed feed = mock(NasaImageFeed.class);
 
         doReturn(link).when(feed).getFirstLink();
+        doReturn(datum).when(feed).getFirstDatum();
         doReturn(feed).when(response).body();
 
         // when
         controller.onResponse(call, response);
 
         // then
-        verify(view).setNasaImage(link);
+        verify(view).setNasaImage(link, datum);
     }
 }

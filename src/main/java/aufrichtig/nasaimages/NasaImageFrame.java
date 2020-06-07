@@ -19,7 +19,7 @@ public class NasaImageFrame extends JFrame {
     String textInput;
     private ImageIcon imageIcon;
     private JLabel imageLabel;
-    private JLabel descripLabel;
+    private JTextArea descrip;
 
     @Inject
     public NasaImageFrame(NasaImageView view, NasaImageController controller) {
@@ -45,7 +45,7 @@ public class NasaImageFrame extends JFrame {
             JPanel bottomPanel = new JPanel();
 
             imageLabel = new JLabel();
-            descripLabel = new JLabel();
+            descrip = new JTextArea();
 
             controller.requestImage(textInput);
 
@@ -53,10 +53,10 @@ public class NasaImageFrame extends JFrame {
             imageIcon = view.nasaImage;
 
             imageLabel.setIcon(imageIcon);
-            descripLabel.setText(view.description);
+            descrip.setText(view.description);
 
             topPanel.add(imageLabel);
-            bottomPanel.add(descripLabel);
+            bottomPanel.add(descrip);
 
             imageFrame.add(topPanel, BorderLayout.NORTH);
             imageFrame.add(bottomPanel, BorderLayout.SOUTH);
