@@ -5,17 +5,22 @@ import javax.swing.*;
 import java.awt.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-import javax.imageio.ImageIO;
 
 @Singleton
-public class NasaImageView extends JComponent{
-    ImageIcon imageIcon;
+public class NasaImageView {
+    ImageIcon nasaImage;
     String imageLink;
 
     public void setNasaImage(NasaImageFeed.Link link) throws MalformedURLException {
+        this.imageLink = link.imageLink;
+
+        if (imageLink == null) {
+            return;
+        }
+
         imageLink = link.imageLink;
         URL url = new URL(imageLink);
-        imageIcon = new ImageIcon(url);
+        nasaImage = new ImageIcon(url);
     }
 
 }

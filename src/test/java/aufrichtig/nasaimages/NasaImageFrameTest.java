@@ -15,10 +15,10 @@ public class NasaImageFrameTest {
         NasaImageController controller = mock(NasaImageController.class);
 
         // when
-        NasaImageFrame frame = new NasaImageFrame(view, controller);
+        //NasaImageFrame frame = new NasaImageFrame(view, controller);
 
         // then
-        verify(controller).requestImage();
+        verify(controller).requestImage("moon");
     }
 
 }

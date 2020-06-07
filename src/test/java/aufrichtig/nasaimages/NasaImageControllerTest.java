@@ -23,11 +23,11 @@ public class NasaImageControllerTest  {
         NasaImageService service = mock(NasaImageService.class);
         NasaImageView view = mock(NasaImageView.class);
         Call<NasaImageFeed> call = mock(Call.class);
-        doReturn(call).when(service).getImage();
+        doReturn(call).when(service).getImage("moon");
         NasaImageController controller = new NasaImageController(service, view);
 
         // when
-        controller.requestImage();
+        controller.requestImage("moon");
 
         // then
         verify(call).enqueue(controller);

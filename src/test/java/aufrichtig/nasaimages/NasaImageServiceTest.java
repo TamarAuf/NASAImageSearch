@@ -21,7 +21,7 @@ public class NasaImageServiceTest {
         NasaImageService service = new NasaImageServiceFactory().getInstance();
 
         // when
-        Response<NasaImageFeed> response = service.getImage().execute();
+        Response<NasaImageFeed> response = service.getImage("moon").execute();
 
         //then
         assertTrue(response.toString(), response.isSuccessful());
