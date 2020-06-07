@@ -18,4 +18,4 @@ It takes a text entry of search terms and compares to indexed metadata, returnin
 
 Download executable [jar](https://github.com/TamarAuf/NASAImageSearch/blob/master/build/libs/NASAImages-1.0-SNAPSHOT.jar)
 
-![image](https://github.com/TamarAuf/NASAImageSearch/blob/master/Screenshots/Screenshot%202020-06-07%2002.18.28.png)
+![image](https://github.com/TamarAuf/NASAImageSearch/blob/master/Screenshot%202020-06-07%2002.18.28.png)
