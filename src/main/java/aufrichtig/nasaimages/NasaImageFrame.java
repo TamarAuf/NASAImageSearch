@@ -19,7 +19,7 @@ public class NasaImageFrame extends JFrame {
     String textInput;
     private ImageIcon imageIcon;
     private JLabel imageLabel;
-    private URL url;
+    private JLabel descripLabel;
 
     @Inject
     public NasaImageFrame(NasaImageView view, NasaImageController controller) {
@@ -40,13 +40,27 @@ public class NasaImageFrame extends JFrame {
 
             JFrame imageFrame = new JFrame();
             imageFrame.setSize(600, 600);
-            imageFrame.setTitle("Image");
+
+            JPanel topPanel = new JPanel();
+            JPanel bottomPanel = new JPanel();
+
+            imageLabel = new JLabel();
+            descripLabel = new JLabel();
 
             controller.requestImage(textInput);
+
+            imageFrame.setTitle(view.title);
             imageIcon = view.nasaImage;
 
-            imageLabel = new JLabel(imageIcon);
-            imageFrame.add(imageLabel);
+            imageLabel.setIcon(imageIcon);
+            descripLabel.setText(view.description);
+
+            topPanel.add(imageLabel);
+            bottomPanel.add(descripLabel);
+
+            imageFrame.add(topPanel, BorderLayout.NORTH);
+            imageFrame.add(bottomPanel, BorderLayout.SOUTH);
+
             imageFrame.setVisible(true);
 
         });

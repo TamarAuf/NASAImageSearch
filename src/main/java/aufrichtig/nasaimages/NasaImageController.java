@@ -29,7 +29,7 @@ public class NasaImageController implements Callback<NasaImageFeed>{
         NasaImageFeed.Data datum = response.body().getFirstDatum();
 
         try {
-            view.setNasaImage(link);
+            view.setNasaImage(link, datum);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
