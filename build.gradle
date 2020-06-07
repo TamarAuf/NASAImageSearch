@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'org.example'
+group 'NASAImages'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
@@ -13,7 +13,7 @@ repositories {
 
 jar {
     manifest {
-        attributes "Main-Class": "aufrichtig.nasa.neo.NeoFrame"
+        attributes "Main-Class": "aufrichtig.nasaimages.NasaImageFrame"
     }
 
     // this will put all the dependencies in the jar file
