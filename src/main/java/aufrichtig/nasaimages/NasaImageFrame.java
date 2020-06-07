@@ -38,31 +38,7 @@ public class NasaImageFrame extends JFrame {
         searchButton.addActionListener(actionEvent -> {
             textInput = searchField.getText();
 
-            JFrame imageFrame = new JFrame();
-            imageFrame.setSize(600, 600);
-
-            JPanel topPanel = new JPanel();
-            JPanel bottomPanel = new JPanel();
-
-            imageLabel = new JLabel();
-            descrip = new JTextArea();
-
             controller.requestImage(textInput);
-
-            imageFrame.setTitle(view.title);
-            imageIcon = view.nasaImage;
-
-            imageLabel.setIcon(imageIcon);
-            descrip.setText(view.description);
-
-            topPanel.add(imageLabel);
-            bottomPanel.add(descrip);
-
-            imageFrame.add(topPanel, BorderLayout.NORTH);
-            imageFrame.add(bottomPanel, BorderLayout.SOUTH);
-
-            imageFrame.setVisible(true);
-
         });
 
         add(instruct);
